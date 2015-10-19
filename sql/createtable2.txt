@@ -1,0 +1,37 @@
+<h1>CREATE TABLE</h1>
+<p>Skapar en tabell.<p>
+DESC
+DESC
+DESC
+DESC
+DESC
+DESC
+DESCDESC
+--******--
+CREATE TABLE Person
+(
+PersonID int,
+LastName varchar(255),
+FirstName varchar(255),
+Address varchar(255),
+City varchar(255)
+);
+SQL
+SQL
+SQL
+SQL
+SQL
+SQLSQL
+SQL
+SQL
+SQL
+SQL
+--??????--
+SHOW TABLES;
+RESULT
+RESULT
+RESULT
+RESULT
+RESULT
+RESULT
+RESULTRESULT
