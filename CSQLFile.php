@@ -22,22 +22,25 @@ class CSQLFile
 		{
 			if ($row == '--******--') 
 			{
-				$this->lineEnd = $index-1;
+				$this->lineEnd = $index-0;
 				$this->description = array_slice($file, $this->lineStart, $this->lineEnd);
 			}
 			else if ($row == '--??????--') 
 			{
-				$this->lineStart = $this->lineEnd;
-				$this->lineEnd = $index-1;
+				$this->lineStart = $this->lineEnd + 1;
+				$this->lineEnd = $index-3;
 				$this->sql = array_slice($file, $this->lineStart, $this->lineEnd);
 
-				return array($this->sql, $this->description, $this->result);
-			}
-			else if (false) 
-			{
 				
 			}
+			else if(end($file) == $row) 
+			{
+				$this -> lineStart = $this -> lineEnd + 4;
+				$this -> lineEnd = $index - 3;
+				$this -> result = array_slice($file, $this -> lineStart, $this -> lineEnd);
+			}
 		}
+		return array($this->description, $this->sql, $this->result);
 	}
 
 	private function executeStatements()

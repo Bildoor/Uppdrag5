@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 
-$_GET['p'] = 'createtable';
+$_GET['p'] = 'createtable2';
 
 include('CDatabase.php');
 include('CSQLFile.php');
