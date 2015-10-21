@@ -9,6 +9,7 @@ class CSQLFile
 	private $lineStart;
 	private $lineEnd;
 	private $lineTot;
+	private $sqlResult;
 
 	public function __construct($filename)
 	{
@@ -44,28 +45,48 @@ class CSQLFile
 		return array($this->description, $this->sql, $this->result);
 	}
 
-	private function executeStatements()
+	public function executeStatements()
 	{
+		$CDatabase = new CDatabase();
+		$execSql = $CDatabase->prepare(implode($this->sql));
+		var_dump($execSql);
+		echo "<br><hr>";
+		//$works = $execSql->execute();
 
+
+		$stmt = $CDatabase -> prepare(implode($this->result));
+		//$stmt -> execute();
+		//$res = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+		
+		//return $this -> generateHTMLTableResult($res);
 	}
 
-	private function generateHTMLTableResult()
+	private function generateHTMLTableResult($stmObj)
 	{
+		$html = "<br><br><table>";
 
+		foreach ($stmObj as $value)
+		{
+			$html .= "<tr><td>$value</td></tr>";
+		}
+
+			$html .= "</table>";
+
+			return $html;
 	}
 
 	public function getDescription()
 	{
-
+		return $this->description;
 	} 
 
 	public function getSQL()
 	{
-
+		return $this->sql;
 	}
 
 	public function getResult()
 	{
-
+		return $this->result;
 	}
 }
