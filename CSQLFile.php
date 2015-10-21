@@ -48,14 +48,12 @@ class CSQLFile
 	{
 		$CDatabase = new CDatabase();
 		$execSql = $CDatabase->prepare(implode($this->sql));
-		var_dump($execSql);
-		echo "<br><hr>";
-		//$works = $execSql->execute();
-
+		$execSql -> execute();
 
 		$stmt = $CDatabase -> prepare(implode($this->result));
-		//$stmt -> execute();
-		//$res = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+		$stmt -> execute();
+		$res = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+		var_dump($res);
 		
 		//return $this -> generateHTMLTableResult($res);
 	}
@@ -66,7 +64,9 @@ class CSQLFile
 
 		foreach ($stmObj as $value)
 		{
-			$html .= "<tr><td>$value</td></tr>";
+			var_dump($value);
+			echo "<br>habbo";
+			//$html .= "<tr><td>$value[]</td></tr>";
 		}
 
 			$html .= "</table>";
