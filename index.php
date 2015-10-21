@@ -5,8 +5,11 @@ $_GET['p'] = 'createtable';
 
 include('CDatabase.php');
 include('CSQLFile.php');
+include('CSQLFileMenu.php');
 
 $db = new CDatabase('test','database');
 $sql = new CSQLFile('måns');
-$res = $sql->readFileParts();
+$filemenu = new CSQLFileMenu();
+$res = $sql->readFileParts($_GET['p']);
 echo $sql -> executeStatements();
+echo $filemenu -> getMainMenu(); 

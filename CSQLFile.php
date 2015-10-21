@@ -16,9 +16,9 @@ class CSQLFile
 		$this->filename=$filename;
 	}
 
-	public function readFileParts()
+	public function readFileParts($p)
 	{
-		$file=file('sql/' . $_GET['p'] . '.txt', FILE_IGNORE_NEW_LINES);
+		$file=file('sql/' . $p . '.txt', FILE_IGNORE_NEW_LINES);
 		$this->lineStart=0;
 		foreach ($file as $index => $row)
 		{
