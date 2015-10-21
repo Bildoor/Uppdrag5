@@ -54,9 +54,8 @@ class CSQLFile
 		$stmt = $CDatabase -> prepare(implode($this->result));
 		$stmt -> execute();
 		$res = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-		var_dump($res);
 		
-		//return $this -> generateHTMLTableResult($res);
+		return $this -> generateHTMLTableResult($res);
 	}
 
 	private function generateHTMLTableResult($stmObj)
@@ -65,9 +64,7 @@ class CSQLFile
 
 		foreach ($stmObj as $value)
 		{
-			var_dump($value);
-			echo "<br>habbo";
-			//$html .= "<tr><td>$value[]</td></tr>";
+			$html .= "<tr><td>$value[Tables_in_test]</td></tr>";
 		}
 
 			$html .= "</table>";
