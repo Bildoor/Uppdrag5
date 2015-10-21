@@ -8,7 +8,7 @@ class CDatabase
 	private $options;
 	private $PDO;
 
-	public function __construct($dbname='', $options='file', $user='root', $pass='')
+	public function __construct($dbname='test', $options='file', $user='root', $pass='')
 	{
 		$this->username = $user;
 		$this->password = $pass;
